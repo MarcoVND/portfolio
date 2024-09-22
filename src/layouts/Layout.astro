@@ -1,4 +1,9 @@
 ---
+import Avatar from '../components/ui/Avatar.astro';
+import Skill from '../components/ui/Skill.astro';
+import LanguageLayout from './LanguageLayout.astro';
+import SkillsLayout from './SkillsLayout.astro';
+
 interface Props {
 	title: string;
 }
@@ -10,41 +15,68 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content="MVNWeb portfolio" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<div class="drawer">
+			<input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+			<div class="drawer-content flex flex-col">
+			  <!-- Navbar -->
+			  <div class="navbar bg-base-300 w-full">
+				<div class="flex-none lg:hidden">
+				  <label for="my-drawer-3" aria-label="open sidebar" class="btn btn-square btn-ghost">
+					<svg
+					  xmlns="http://www.w3.org/2000/svg"
+					  fill="none"
+					  viewBox="0 0 24 24"
+					  class="inline-block h-6 w-6 stroke-current">
+					  <path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M4 6h16M4 12h16M4 18h16"></path>
+					</svg>
+				  </label>
+				</div>
+				<div class="mx-2 flex-1 px-2">MVNWeb</div>
+				<div class="hidden flex-none lg:block">
+				  <ul class="menu menu-horizontal">
+					<!-- Navbar menu content here -->
+					<!-- <li><a>Navbar Item 1</a></li>
+					<li><a>Navbar Item 2</a></li> -->
+				  </ul>
+				</div>
+			  </div>
+			  <!-- Page content here -->
+			  <slot />
+			</div>
+			<div class="drawer-side">
+			  <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
+			  <ul class="menu bg-base-200 min-h-full w-80 p-4">
+				<!-- Sidebar content here -->
+				 <div class="bg-secondary flex flex-col justify-center py-5">
+					<Avatar />
+					<p class="mx-auto text-white">Marco Vázquez</p>
+					<p class="mx-auto font-light">Fullstack Web Developer</p>
+				</div>
+				 <div class="grid grid-cols-2 grid-rows-3 mt-5 mx-auto w-full">
+					<p class="text-white">Residencia:</p>
+					<p class="font-light">Aguascalientes</p>
+					<p class="text-white">Ciudad:</p>
+					<p class="font-light">Aguascalientes</p>
+					<p class="text-white">Edad:</p>
+					<p class="font-light">19</p>
+				 </div>
+				 <SkillsLayout />
+				 <LanguageLayout />
+				<!-- <li><a>Sidebar Item 1</a></li>
+				<li><a>Sidebar Item 2</a></li> -->
+			  </ul>
+			</div>
+		  </div>
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>

@@ -1,0 +1,18 @@
+---
+interface Props {
+    level: string,
+    technology: string,
+    percentage: string
+}
+
+const { level, technology, percentage } = Astro.props
+---
+
+<div class="flex flex-col justify-center">
+    <div class="radial-progress text-primary" style=`--value:${percentage};` role="progressbar">
+        <span class="text-xs">{level}</span>
+    </div>
+    <p class="text-center text-white">
+        {technology}
+    </p>
+</div>

@@ -1,0 +1,16 @@
+---
+interface Props {
+    language: string,
+    basic?: boolean,
+    intermediate?: boolean,
+    advance?: boolean,
+}
+const { language, basic, intermediate, advance } = Astro.props
+---
+
+<p class="text-white">{language}</p>
+<ul class="steps">
+    <li class=`step ${basic || intermediate || advance ? "step-primary" : ""}`>Básico</li>
+    <li class=`step ${intermediate || advance ? "step-primary" : ""}`>Intermedio</li>
+    <li class=`step ${advance ? "step-primary" : ""}`>Avanzado</li>
+  </ul>
