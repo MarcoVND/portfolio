@@ -2,10 +2,24 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Welcome to my portfolio">
-	
+<Layout title="MVNDev portafolio">
+	<main class="w-2/3 main_height flex flex-col justify-center items-center m-auto gap-4">
+        <h1 class="text-3xl md:text-6xl font-bold">Marco Vázquez</h1>
+        <p class="text-sm sm:text-base text-center font-medium md:text-lg">
+            ¡Hola! Soy un desarrollador web fullstack apasionado por crear soluciones digitales funcionales y atractivas. Aquí encontrarás una muestra de mis proyectos, habilidades y experiencia. ¡Bienvenido a mi portafolio!
+        </p>
+        <div class="flex flex-wrap w-full justify-evenly gap-y-4">
+            <div class="btn btn-primary">Github</div>
+            <div class="btn btn-ghost border-2 border-base-200">Linkedin</div>
+            <div class="btn btn-ghost border-2 border-base-200">Instagram</div>
+        </div>
+    </main>
 </Layout>
 
 <style>
+
+    .main_height {
+        height: calc(100vh - 65.6px);
+    }
 
 </style>

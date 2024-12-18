@@ -17,19 +17,21 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <div class="navbar bg-base-100 border-b-2">
-      <div class="flex-1">
-        <a class="btn btn-ghost text-sm">Marco Vázquez</a>
-        <a class="btn btn-ghost text-sm">Sobre mí</a>
-        <a class="btn btn-ghost text-sm">Skills</a>
-        <a class="btn btn-ghost text-sm">Proyectos</a>
-        <a class="btn btn-ghost text-sm">Contacto</a>
-      </div>
-      <div class="flex-none">
-        <button class="btn btn-primary text-white">
-          Descargar CV
-        </button>
-      </div>
+    <div class="hidden md:block">
+      <nav class="navbar bg-base-100 border-b-2">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-sm">Marco Vázquez</a>
+          <a class="btn btn-ghost text-sm">Sobre mí</a>
+          <a class="btn btn-ghost text-sm">Skills</a>
+          <a class="btn btn-ghost text-sm">Proyectos</a>
+          <a class="btn btn-ghost text-sm">Contacto</a>
+        </div>
+        <div class="flex-none">
+          <button class="btn btn-primary text-white"> Descargar CV </button>
+        </div>
+      </nav>
     </div>
+
+    <slot />
   </body>
 </html>
